@@ -1,22 +1,17 @@
-import js from "@eslint/js";
-import globals from "globals";
-import { defineConfig } from "eslint/config";
-
-export default defineConfig([
+// eslint.config.mjs
+export default [
   {
-    files: ["**/*.{js,mjs,cjs}"],
-    plugins: { js },
-    extends: ["js/recommended"],
+    files: ["**/*.js"],
     languageOptions: {
-      globals: globals.browser,
+      ecmaVersion: "latest",
       sourceType: "commonjs",
     },
     rules: {
-      "semi": ["error", "always"],
-      "quotes": ["error", "single"],
-      "space-before-function-paren": ["error", "never"],
-      "indent": ["error", 2],
-      "no-unused-vars": "warn"
+      semi: ["error", "always"],             // Enforce semicolons
+      quotes: ["error", "single"],           // Enforce single quotes
+      indent: ["error", 2],                  // Enforce 2-space indentation
+      "no-unused-vars": "warn",              // Warn about unused variables
+      "no-console": "off",                  // Warn about console.log
     },
   },
-]);
+];
