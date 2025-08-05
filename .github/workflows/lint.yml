@@ -22,5 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Make ESLint executable
+        run: chmod +x node_modules/.bin/eslint
+
       - name: Run ESLint on js-code/
         run: npx eslint js-code/
