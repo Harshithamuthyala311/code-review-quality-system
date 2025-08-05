@@ -14,13 +14,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
       - name: Install dependencies
         run: npm install
+        working-directory: .  # Ensure running in root where package.json exists
 
       - name: Run ESLint
         run: npx eslint js-code/
+        working-directory: .  # Run ESLint from the root directory
